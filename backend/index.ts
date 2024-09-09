@@ -3,7 +3,7 @@ import initServer from './src/config/server'
 import expressRoutes from './src/routes'
 
 const startServer = async () => {
-  const app = expressConfig()
+  const app = await expressConfig()
 
   expressRoutes(app)
 

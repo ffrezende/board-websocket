@@ -1,7 +1,10 @@
 import { Server } from 'socket.io'
 
-const socketConfig = (server: any) => {
+const socketConfig = async (server: any) => {
   const webSocket = new Server(server, {
+    cors: {
+      origin: '*',
+    },
     path: '/chat',
   })
 

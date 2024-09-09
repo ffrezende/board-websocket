@@ -1,16 +1,15 @@
 import { Express } from 'express'
 import { createServer } from 'http'
-import { Server } from 'socket.io'
 import socketConfig from './socket'
 
-const initServer = (app: Express) => {
+const initServer = async (app: Express) => {
   const port = process.env.PORT
-  const server = createServer(app)
+  const server = await createServer(app)
 
-  socketConfig(server)
+  await socketConfig(server)
 
   server.listen(port, () => {
-    console.log(`Server listening on port ${port}`)
+    console.log(`Server listeningd on port ${port}`)
   })
 }
 
