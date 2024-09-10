@@ -20,7 +20,7 @@ export function ConnectionState({ isConnected }: any) {
   )
 }
 
-export function ConnectionManager() {
+export function ConnectionManager({ chatRoom }: any) {
   const { disconnect, connect } = useSocketConfig()
   const { setIsConnected, isConnected } = useChatState()
 
@@ -29,7 +29,7 @@ export function ConnectionManager() {
       disconnect()
       setIsConnected(false)
     } else {
-      connect()
+      connect(chatRoom)
       setIsConnected(true)
     }
   }

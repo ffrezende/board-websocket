@@ -5,9 +5,9 @@ import { useChatState } from '../context/chatConfig'
 const useSocketConfig = () => {
   const { setIsConnected } = useChatState()
 
-  const chatRoom = 'chatroom'
+  const createRoom = () => {}
 
-  function connect() {
+  function connect(chatRoom: string) {
     socket.connect()
     socket.emit('join-room', chatRoom)
     setIsConnected(true)
