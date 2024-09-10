@@ -1,4 +1,7 @@
+import { useChatState } from '../context/chatConfig'
+
 const InputMessage = ({ value, onChange, submit }: any) => {
+  const { isConnected } = useChatState()
   return (
     <>
       <div className='max-w-2xl mx-auto'>
@@ -47,8 +50,13 @@ const InputMessage = ({ value, onChange, submit }: any) => {
               placeholder='Your message...'
             ></textarea>
             <button
+              disabled={!isConnected}
               onClick={submit}
-              className='inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600'
+              className={`inline-flex justify-center p-2 ${
+                !isConnected
+                  ? 'text-grey-600'
+                  : 'text-blue-600 hover:bg-blue-100 dark:text-blue-500'
+              }  rounded-full cursor-pointer  dark:hover:bg-gray-600`}
             >
               <svg
                 className='w-6 h-6 rotate-90'

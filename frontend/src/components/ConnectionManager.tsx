@@ -1,3 +1,4 @@
+import { useChatState } from '../context/chatConfig'
 import useSocketConfig from '../hooks/useSocketConfig'
 
 export function ConnectionState({ isConnected }: any) {
@@ -20,7 +21,8 @@ export function ConnectionState({ isConnected }: any) {
 }
 
 export function ConnectionManager() {
-  const { isConnected, disconnect, connect, setIsConnected } = useSocketConfig()
+  const { disconnect, connect } = useSocketConfig()
+  const { setIsConnected, isConnected } = useChatState()
 
   const handleConnect = () => {
     if (isConnected) {

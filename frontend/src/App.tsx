@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import useSocketMessage from './hooks/useSocketMessage'
-import CardMessage from './components/cardMessage'
+import CardMessage from './components/CardMessage'
 import InputMessage from './components/InputMessage'
 import { ConnectionManager } from './components/ConnectionManager'
 

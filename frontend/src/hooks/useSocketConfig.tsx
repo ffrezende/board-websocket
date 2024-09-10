@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { socket } from '../service/socket'
+import { useChatState } from '../context/chatConfig'
 
 const useSocketConfig = () => {
-  const [isConnected, setIsConnected] = useState(socket.connected)
+  const { setIsConnected } = useChatState()
+
   const chatRoom = 'chatroom'
 
   function connect() {
@@ -21,11 +23,10 @@ const useSocketConfig = () => {
 
     return () => {
       socket.off('disconnect', disconnect)
-      //socket.off('message', onWatchMessage)
     }
   }, [])
 
-  return { connect, disconnect, isConnected, setIsConnected }
+  return { connect, disconnect }
 }
 
 export default useSocketConfig
