@@ -14,3 +14,8 @@
 .btn-blue:hover {
     @apply bg-blue-700;
 }
+
+.container {
+    @apply flex w-full items-center justify-center flex-col ;
+}
+

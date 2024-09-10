@@ -7,13 +7,15 @@ import { ConnectionManager } from './components/ConnectionManager'
 
 export function Events({ events }: any) {
   return (
-    <ul>
-      {events.map((event: any, index: any) => (
-        <div key={index}>
-          <CardMessage message={event} />
-        </div>
-      ))}
-    </ul>
+    <div className='max-h-[80vh] overflow-auto'>
+      <div className='m-4'>
+        {events.map((event: any, index: any) => (
+          <div key={index}>
+            <CardMessage message={event} />
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 
@@ -28,8 +30,8 @@ const App = () => {
 
   return (
     <>
-      <div className='w-full '>
-        <ConnectionManager />
+      <ConnectionManager />
+      <div className='container'>
         <Events events={broadCastMessage} />
         <InputMessage
           value={message}

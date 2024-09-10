@@ -4,7 +4,7 @@ const InputMessage = ({ value, onChange, submit }: any) => {
   const { isConnected } = useChatState()
   return (
     <>
-      <div className='max-w-2xl mx-auto'>
+      <div className='w-full fixed left-0  bottom-0'>
         <div>
           <label className='sr-only'>Your message</label>
           <div className='flex items-center py-2 px-3 bg-gray-50 rounded-lg dark:bg-gray-700'>
